@@ -1,9 +1,17 @@
+import store from './store/store';
+import { addNote } from './actions/actions';
 
 // ------ HTML references ------
 let notesUList = document.getElementById('notes');
 let addNoteForm = document.getElementById('add-note');
 let addNoteTitle = addNoteForm['title'];
 let addNoteContent = addNoteForm['content'];
+
+console.log('Avant:', store.getState());
+store.dispatch(addNote('Un', 'Un contenu'));
+store.dispatch(addNote('Deux', 'Deux contenu'));
+store.dispatch(addNote('Trois', 'Trois contenu'));
+console.log('Apres:', store.getState());
 
 // ------ Redux ------
 function deleteNote(index) {
