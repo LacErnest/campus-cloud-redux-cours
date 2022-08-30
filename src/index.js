@@ -15,7 +15,7 @@ console.log('Apres:', store.getState());
 
 // ------ Redux ------
 function deleteNote(index) {
-  // console.log(index);
+  console.log(index);
 }
 
 function renderNotes() {
@@ -26,7 +26,7 @@ function renderNotes() {
     let noteItem = `
       <li>
         <b>${note.title}</b>
-        <button data-id="${index}">x</button>
+        <button data-id="${index}">X</button>
         <br />
         <span>${note.content}</span>
       </li>
@@ -55,6 +55,10 @@ function setDeleteNoteButtonsEventListeners() {
     });
   }
 }
+
+store.subscribe(() => {
+  renderNotes();
+});
 
 // ------ Render the initial Notes ------
 renderNotes();
