@@ -1,5 +1,5 @@
 import store from './store/store';
-import { addNote } from './actions/actions';
+import { addNote, removeNote } from './actions/actions';
 
 // ------ HTML references ------
 let notesUList = document.getElementById('notes');
@@ -16,6 +16,7 @@ console.log('Apres:', store.getState());
 // ------ Redux ------
 function deleteNote(index) {
   console.log(index);
+  store.dispatch(removeNote(index));
 }
 
 function renderNotes() {
